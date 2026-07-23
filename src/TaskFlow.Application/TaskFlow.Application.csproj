@@ -1,0 +1,28 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <RootNamespace>TaskFlow.Application</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="MediatR" Version="12.4.1" />
+    <PackageReference Include="FluentValidation.DependencyInjectionExtensions" Version="11.10.0" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="8.0.2" />
+    <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="8.0.2" />
+    <!--
+      EF Core is referenced here ONLY for IQueryable async extensions (CountAsync, ToListAsync)
+      used by PaginatedList. No DbContext, migrations, or provider lives in this layer - that's
+      Infrastructure's job. This is a well-known, accepted exception to strict layering
+      (see Jason Taylor's Clean Architecture template), not an accident.
+    -->
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="8.0.8" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\TaskFlow.Domain\TaskFlow.Domain.csproj" />
+  </ItemGroup>
+
+</Project>
