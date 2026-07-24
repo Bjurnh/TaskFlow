@@ -16,6 +16,7 @@ public interface IApplicationDbContext
     DbSet<Project> Projects { get; }
     DbSet<TaskItem> Tasks { get; }
     DbSet<Tag> Tags { get; }
+    DbSet<RefreshToken> RefreshTokens { get; }
 
     Task<int> SaveChangesAsync(CancellationToken cancellationToken = default);
 }

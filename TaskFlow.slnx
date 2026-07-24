@@ -1,4 +1,6 @@
 <Solution>
+  <Project Path="TaskFlow.API/TaskFlow.API.csproj" Id="f44bf5a8-77a2-4d77-a241-2d17f1f267d4" />
   <Project Path="TaskFlow.Application/TaskFlow.Application.csproj" />
   <Project Path="TaskFlow.Domain/TaskFlow.Domain.csproj" />
+  <Project Path="TaskFlow.Infrastructure/TaskFlow.Infrastructure.csproj" Id="ee0fdb20-5094-4123-98db-b3d5f38401fa" />
 </Solution>
