@@ -319,6 +319,47 @@ namespace TaskFlow.Infrastructure.Migrations
                     b.ToTable("users", (string)null);
                 });
 
+            modelBuilder.Entity("TaskFlow.Infrastructure.Persistence.Analytics.AnalyticsDailySnapshot", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uuid")
+                        .HasColumnName("id");
+
+                    b.Property<decimal?>("AvgCompletionHours")
+                        .HasColumnType("numeric(10,2)")
+                        .HasColumnName("avg_completion_hours");
+
+                    b.Property<Guid>("OrganizationId")
+                        .HasColumnType("uuid")
+                        .HasColumnName("organization_id");
+
+                    b.Property<Guid?>("ProjectId")
+                        .HasColumnType("uuid")
+                        .HasColumnName("project_id");
+
+                    b.Property<DateOnly>("SnapshotDate")
+                        .HasColumnType("date")
+                        .HasColumnName("snapshot_date");
+
+                    b.Property<int>("TasksCompleted")
+                        .HasColumnType("integer")
+                        .HasColumnName("tasks_completed");
+
+                    b.Property<int>("TasksCreated")
+                        .HasColumnType("integer")
+                        .HasColumnName("tasks_created");
+
+                    b.HasKey("Id")
+                        .HasName("pk_analytics_daily_snapshots");
+
+                    b.HasIndex("OrganizationId", "ProjectId", "SnapshotDate")
+                        .IsUnique()
+                        .HasDatabaseName("ix_analytics_daily_snapshots_organization_id_project_id_snapsh");
+
+                    b.ToTable("analytics_daily_snapshots", (string)null);
+                });
+
             modelBuilder.Entity("TaskFlow.Infrastructure.Persistence.Outbox.OutboxMessage", b =>
                 {
                     b.Property<Guid>("Id")

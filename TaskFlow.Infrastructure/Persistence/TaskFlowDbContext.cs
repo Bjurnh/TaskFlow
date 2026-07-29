@@ -1,6 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using TaskFlow.Application.Common.Interfaces;
 using TaskFlow.Domain.Entities;
+using TaskFlow.Infrastructure.Persistence.Analytics;
 using TaskFlow.Infrastructure.Persistence.Outbox;
 
 namespace TaskFlow.Infrastructure.Persistence;
@@ -16,12 +17,12 @@ public class TaskFlowDbContext : DbContext, IApplicationDbContext
     public DbSet<Project> Projects => Set<Project>();
     public DbSet<TaskItem> Tasks => Set<TaskItem>();
     public DbSet<Tag> Tags => Set<Tag>();
-
     public DbSet<RefreshToken> RefreshTokens => Set<RefreshToken>();
 
     // Infrastructure-only - deliberately NOT on IApplicationDbContext, since Application
     // handlers never need to query the outbox directly.
     public DbSet<OutboxMessage> OutboxMessages => Set<OutboxMessage>();
+    public DbSet<AnalyticsDailySnapshot> AnalyticsDailySnapshots => Set<AnalyticsDailySnapshot>();
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
