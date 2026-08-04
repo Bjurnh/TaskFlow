@@ -1,17 +1,20 @@
-using System.Text;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
+using Microsoft.OpenApi.Models;
+using System.Text;
+using System.Text.Json.Serialization;
 using TaskFlow.Api.Middleware;
 using TaskFlow.Application;
 using TaskFlow.Infrastructure;
 using TaskFlow.Infrastructure.Identity;
-using Microsoft.OpenApi.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Each layer registers itself through its own AddXxx() extension - Program.cs doesn't know
 // or care what's inside Application/Infrastructure, it just composes them.
-builder.Services.AddApplication();
+builder.Services.AddControllers()
+    .AddJsonOptions(options =>
+        options.JsonSerializerOptions.Converters.Add(new JsonStringEnumConverter()));
 builder.Services.AddInfrastructure(builder.Configuration);
 
 builder.Services.AddControllers();
