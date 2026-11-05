@@ -140,10 +140,10 @@ A few non-obvious issues hit during development, kept here because working throu
 - [x] Infrastructure layer (EF Core, Outbox interceptor, Redis, JWT)
 - [x] API layer, deployed live to Azure App Service
 - [x] Outbox background processor + analytics event handlers
-- [ ] React + TypeScript frontend
-- [ ] Dockerfiles + Docker Compose for local multi-service dev
-- [ ] GitHub Actions CI (lint, xUnit tests, build & push images)
-- [ ] Infrastructure-as-code (Bicep) for the Azure deployment
+- [x] React + TypeScript frontend
+- [x] Dockerfiles + Docker Compose for local multi-service dev
+- [x] GitHub Actions CI (lint, xUnit tests, build & push images)
+- [x] Infrastructure-as-code (Bicep) for the Azure deployment
 
 ---
 
