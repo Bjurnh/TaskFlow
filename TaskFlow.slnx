@@ -1,4 +1,7 @@
 <Solution>
+  <Folder Name="/Tests/">
+    <Project Path="TaskFlow.Domain.Tests/TaskFlow.Domain.Tests.csproj" Id="a46c7a3c-180f-4f49-8266-4697c7132461" />
+  </Folder>
   <Project Path="TaskFlow.API/TaskFlow.API.csproj" Id="f44bf5a8-77a2-4d77-a241-2d17f1f267d4" />
   <Project Path="TaskFlow.Application/TaskFlow.Application.csproj" />
   <Project Path="TaskFlow.Domain/TaskFlow.Domain.csproj" />
